@@ -1,0 +1,22 @@
+{
+  "name": "react-zero-to-hero",
+  "version": "1.0.0",
+  "description": "This is namaste react learning programe",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Ravi",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 10 version"
+  ]
+}

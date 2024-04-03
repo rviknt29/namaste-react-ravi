@@ -1,3 +1,5 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
 // Example for nested DOM created using react
 const parent = React.createElement(
   "div",
