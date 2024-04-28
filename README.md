@@ -1,6 +1,7 @@
 # Namaste React !!
 
 # Parcel
+
     - Dev Build
     - Local server
     - HMR - Hot Module replacement - Automatically refresh the browser
@@ -18,3 +19,13 @@
     - HTTPS
     - Tree shaking - remove unused code
     - Different dev and production bundles
+
+# Two types of Export/Import
+
+    - Default Export/Import
+    export default component
+    import component from "path"
+
+    - Named Export/Import
+    export const component
+    import { component } from "path"
