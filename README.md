@@ -29,3 +29,9 @@
     - Named Export/Import
     export const component
     import { component } from "path"
+
+# React Hooks
+
+    - Normal jS utility function
+    - useState() - Super powerful state variable in react
+    - useEffect()
