@@ -50,3 +50,14 @@
     margin: 10px;
     cursor: pointer;
 }
+
+.shimmer-card {
+    height: 400px;
+    width: 300px;
+    background-color: #f0f0f0;
+    margin: 20px;
+}
+
+.shimmer-container {
+    display: flex;
+}
