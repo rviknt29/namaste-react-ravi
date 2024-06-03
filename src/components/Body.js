@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurents, setListOfRestaurents] = useState([]);
@@ -25,6 +26,8 @@ const Body = () => {
     setFilteredRestaurent(resListFromAPI);
   };
 
+  const onlineStatus = useOnlineStatus();
+
   const handleFilterTopRatedRestaurents = () => {
     const filteredResList = listOfRestaurents.filter(
       (res) => res.info.avgRating > 4
@@ -32,6 +35,14 @@ const Body = () => {
     console.log(filteredResList);
     setFilteredRestaurent(filteredResList);
   };
+
+  if (onlineStatus === false) {
+    return (
+      <h1>
+        Looks like you are offline!! Please check your internet connection
+      </h1>
+    );
+  }
 
   return listOfRestaurents.length === 0 ? (
     <Shimmer />
