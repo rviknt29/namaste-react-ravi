@@ -9,6 +9,8 @@ const Body = () => {
   const [filteredRestauraent, setFilteredRestaurent] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+  console.log("listOfRestaurents --> ", listOfRestaurents);
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -48,11 +50,11 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex">
+        <div className="search m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-black"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
@@ -66,23 +68,26 @@ const Body = () => {
               console.log(filteredRestauraents);
               setFilteredRestaurent(filteredRestauraents);
             }}
+            className="px-4 py-1 rounded border shadow-md bg-green-100 m-4"
           >
             Search
           </button>
+          <button
+            onClick={handleFilterTopRatedRestaurents}
+            className="px-4 py-1 rounded border shadow-md bg-gray-100"
+          >
+            Top Rated Restaurants
+          </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={handleFilterTopRatedRestaurents}
-        >
-          Top Rated Restaurants
-        </button>
       </div>
-      <div className="res-container">
+      <div className="flex gap-5 flex-wrap justify-center">
         {filteredRestauraent.map((restaurent) => (
           <Link
             key={restaurent.info.id}
             to={`/restaurants/${restaurent.info.id}`}
+            className="m-0 p-0"
           >
+          {/* if the restaurent is promoted then add a promoted label to it - avgRating */}
             <RestaurantCard resData={restaurent.info} />
           </Link>
         ))}
