@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -8,6 +8,8 @@ const Body = () => {
   const [listOfRestaurents, setListOfRestaurents] = useState([]);
   const [filteredRestauraent, setFilteredRestaurent] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   console.log("listOfRestaurents --> ", listOfRestaurents);
 
@@ -87,8 +89,12 @@ const Body = () => {
             to={`/restaurants/${restaurent.info.id}`}
             className="m-0 p-0"
           >
-          {/* if the restaurent is promoted then add a promoted label to it - avgRating */}
-            <RestaurantCard resData={restaurent.info} />
+            {/* if the restaurent is promoted then add a promoted label to it - avgRating */}
+            {restaurent.info.avgRating > 4.1 ? (
+              <RestaurantCardPromoted resData={restaurent.info} />
+            ) : (
+              <RestaurantCard resData={restaurent.info} />
+            )}
           </Link>
         ))}
       </div>
