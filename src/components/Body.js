@@ -11,8 +11,6 @@ const Body = () => {
 
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
-  console.log("listOfRestaurents --> ", listOfRestaurents);
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -36,7 +34,6 @@ const Body = () => {
     const filteredResList = listOfRestaurents.filter(
       (res) => res.info.avgRating > 4
     );
-    console.log(filteredResList);
     setFilteredRestaurent(filteredResList);
   };
 
@@ -67,7 +64,6 @@ const Body = () => {
               const filteredRestauraents = listOfRestaurents.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
-              console.log(filteredRestauraents);
               setFilteredRestaurent(filteredRestauraents);
             }}
             className="px-4 py-1 rounded border shadow-md bg-green-100 m-4"
